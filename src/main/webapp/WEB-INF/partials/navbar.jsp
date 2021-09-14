@@ -5,6 +5,10 @@
             <a class="navbar-brand" href="/ads">Adlister</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
+            <li><form action="/ads/search" class="form-inline" method="GET">
+                <input id="search" name="search" class="form-control" type="text" placeholder="Search for an ad">
+                <input type="submit" class="btn btn-primary btn-block" value="Search">
+            </form></li>
             <li><a href="/login">Login</a></li>
             <li><a href="/logout">Logout</a></li>
         </ul>

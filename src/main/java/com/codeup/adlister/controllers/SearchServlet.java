@@ -14,11 +14,16 @@ public class SearchServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-//Implement functionality that allows users to search through the ads in your database.
+        //Implement functionality that allows users to search through the ads in your database.
         String itemSearch = request.getParameter("search");
         request.setAttribute("ads", DaoFactory.getAdsDao().searchAds(itemSearch));
-        request.getRequestDispatcher("/WEB-INF/ads/search.jsp").forward(request, response);
 
+        // Returns all results if user enters nothing, change this to error handling
+        if (itemSearch == null) {
+            response.sendRedirect("/ads");
+            return;
+        }
+        request.getRequestDispatcher("/WEB-INF/ads/search.jsp").forward(request, response);
     }
 
     @Override

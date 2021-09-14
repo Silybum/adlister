@@ -12,7 +12,7 @@ links depending on if a user was logged in or out?
         <div>
             <ul class="nav navbar-nav navbar-left">
                 <li><a href="/login">Login</a></li>
-                <li><a href="#">View Ads</a></li>
+                <li><a href="/ads">View Ads</a></li>
                 <li><a href="#">Deal of the Day</a></li>
             </ul>
         </div>
@@ -24,4 +24,22 @@ links depending on if a user was logged in or out?
     </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
+
 <%--$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$--%>
+<c:choose>
+    <c:when test="${sessionScope.user != null}">
+        <%-- logged in --%>
+        <%-- profile/ logout/ create ad/ delete ad/ view personal ads--%>
+        <ul class="nav navbar-nav navbar-left">
+            <li><a href="#">PROFILE</a></li>
+            <li><a href="#">CREATE AD</a></li>
+            <li><a href="#">DELETE AD</a></li>
+            <li><a href="#">PERSONAL ADS</a></li>
+            <li><a href="/logout">LOGOUT</a></li>
+        </ul>
+    </c:when>
+    <c:otherwise>
+        <%-- logged out --%>
+        <%-- home/ login or signup/ about/ view ads--%>
+    </c:otherwise>
+</c:choose>

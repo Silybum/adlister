@@ -9,6 +9,30 @@ links depending on if a user was logged in or out?
         <div class="navbar-header">
             <a class="navbar-brand" href="/ads">Tx Silybum</a>
         </div>
+
+        <span class="navbar-text">
+                <c:choose>
+                    <c:when test="${sessionScope.user != null}">
+                        <ul class="nav navbar-nav navbar-left">
+                            <li><a href="/profile.jsp">PROFILE</a></li>
+                            <li><a href="/create">CREATE AD</a></li>
+                            <li><a href="/delete">DELETE AD</a></li>
+                            <li><a href="#">PERSONAL ADS</a></li>
+                            <li><a href="/logout">LOGOUT</a></li>
+                        </ul>
+                    </c:when>
+                    <c:otherwise>
+                        <ul class="nav navbar-nav navbar-left">
+                            <li><a href="/index.jsp">Home</a></li>
+                            <li><a href="#">View Ads</a></li>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/register.jsp">Register</a></li>
+                            <li><a href="/login">Login</a></li>
+                        </ul>
+                    </c:otherwise>
+                </c:choose>
+            </span>
+        <%-- -->
         <div>
             <ul class="nav navbar-nav navbar-left">
                 <li><a href="/login">Login</a></li>
@@ -26,20 +50,3 @@ links depending on if a user was logged in or out?
 </nav>
 
 <%--$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$--%>
-<c:choose>
-    <c:when test="${sessionScope.user != null}">
-        <%-- logged in --%>
-        <%-- profile/ logout/ create ad/ delete ad/ view personal ads--%>
-        <ul class="nav navbar-nav navbar-left">
-            <li><a href="#">PROFILE</a></li>
-            <li><a href="#">CREATE AD</a></li>
-            <li><a href="#">DELETE AD</a></li>
-            <li><a href="#">PERSONAL ADS</a></li>
-            <li><a href="/logout">LOGOUT</a></li>
-        </ul>
-    </c:when>
-    <c:otherwise>
-        <%-- logged out --%>
-        <%-- home/ login or signup/ about/ view ads--%>
-    </c:otherwise>
-</c:choose>

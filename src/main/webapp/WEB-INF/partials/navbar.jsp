@@ -13,8 +13,9 @@ links depending on if a user was logged in or out?
         <span class="navbar-text">
                 <c:choose>
                     <c:when test="${sessionScope.user != null}">
+                        <%-- When logged in--%>
                         <ul class="nav navbar-nav navbar-left">
-                            <li><a href="/profile.jsp">PROFILE</a></li>
+                            <li><a href="/profile">PROFILE</a></li>
                             <li><a href="/create">CREATE AD</a></li>
                             <li><a href="/delete">DELETE AD</a></li>
                             <li><a href="#">PERSONAL ADS</a></li>
@@ -22,16 +23,19 @@ links depending on if a user was logged in or out?
                         </ul>
                     </c:when>
                     <c:otherwise>
+                        <%-- When logged out --%>
                         <ul class="nav navbar-nav navbar-left">
-                            <li><a href="/index.jsp">Home</a></li>
+                            <li><a href="/index">Home</a></li>
                             <li><a href="#">View Ads</a></li>
                             <li><a href="/about">About</a></li>
-                            <li><a href="/register.jsp">Register</a></li>
+                            <li><a href="/register">Register</a></li>
                             <li><a href="/login">Login</a></li>
                         </ul>
                     </c:otherwise>
                 </c:choose>
             </span>
+    </div>
+</nav>
         <%-- -->
         <div>
             <ul class="nav navbar-nav navbar-left">

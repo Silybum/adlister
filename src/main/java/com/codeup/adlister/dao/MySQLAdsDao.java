@@ -64,6 +64,38 @@ public class MySQLAdsDao implements Ads {
         );
     }
 
+    @Override
+    public Ad findById(long id) {
+        try{
+            String query = "select * from ads where id = ? limit 1";
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, String.valueOf(id));
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return extractAd(rs);
+            }
+            return null;
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not find this ad");
+        }
+    }
+
+    @Override
+    public Long findUserId(long id) {
+        try {
+            String query = "Select user_id from ads where id = ? limit 1";
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, String.valueOf(id));
+            ResultSet rs = stmt.executeQuery();
+            if(rs.next()) {
+                return rs.getLong("user_id");
+            }
+            return null;
+        } catch (SQLException e) {
+            throw new RuntimeException("Error", e);
+        }
+    }
+
     private List<Ad> createAdsFromResults(ResultSet rs) throws SQLException {
         List<Ad> ads = new ArrayList<>();
         while (rs.next()) {

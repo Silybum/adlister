@@ -18,11 +18,8 @@ public class SearchServlet extends HttpServlet {
         String itemSearch = request.getParameter("search");
         request.setAttribute("ads", DaoFactory.getAdsDao().searchAds(itemSearch));
 
-        // Returns all results if user enters nothing, change this to error handling
-        if (itemSearch == null) {
-            response.sendRedirect("/ads");
-            return;
-        }
+        // Create error handling for search if user enters nothing
+
         request.getRequestDispatcher("/WEB-INF/ads/search.jsp").forward(request, response);
     }
 

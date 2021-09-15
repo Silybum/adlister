@@ -3,6 +3,7 @@ package com.codeup.adlister.controllers;
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.User;
 
+import static javax.swing.JOptionPane.showMessageDialog;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,9 +34,20 @@ public class RegisterServlet extends HttpServlet {
             return;
         }
 
+
+
         // create and save a new user
         User user = new User(username, email, password);
+
+        if(DaoFactory.getUsersDao().check(user)) {
+            response.sendRedirect("/register");
+            showMessageDialog(null, "Username is unavailable. Please try again.");
+            return;
+        }
+
         DaoFactory.getUsersDao().insert(user);
         response.sendRedirect("/login");
+
+        }
     }
-}
+

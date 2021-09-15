@@ -46,6 +46,17 @@ public class MySQLUsersDao implements Users {
     }
 
     @Override
+    public Boolean check(User user) {
+        if (findByUsername(user.getUsername()) != null) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+
+    @Override
     public Long insert(User user) {
         String query = "INSERT INTO users(username, email, password) VALUES (?, ?, ?)";
         try {

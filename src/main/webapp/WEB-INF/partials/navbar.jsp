@@ -16,8 +16,8 @@ links depending on if a user was logged in or out?
                         <%-- When logged in--%>
                         <ul class="nav navbar-nav navbar-left">
                             <li><a href="/profile">PROFILE</a></li>
-                            <li><a href="/create">CREATE AD</a></li>
-                            <li><a href="/delete">DELETE AD</a></li>
+                            <li><a href="/ads/create">CREATE AD</a></li>
+                            <li><a href="/ads/delete">DELETE AD</a></li>
 <%--                            <li><a href="/logout">LOGOUT</a></li>--%>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
@@ -27,8 +27,8 @@ links depending on if a user was logged in or out?
                     <c:otherwise>
                         <%-- When logged out --%>
                         <ul class="nav navbar-nav navbar-left">
-                            <li><a href="/index">Home</a></li>
-                            <li><a href="#">View Ads</a></li>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/ads">View Ads</a></li>
                             <li><a href="/about">About</a></li>
                             <li><a href="/register">Register</a></li>
                             <li><a href="/login">Login</a></li>

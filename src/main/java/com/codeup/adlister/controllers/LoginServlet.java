@@ -37,6 +37,7 @@ public class LoginServlet extends HttpServlet {
             request.getSession().setAttribute("user", user);
             response.sendRedirect("/profile");
         } else {
+            alert("user/ password combo didn't match ");
             response.sendRedirect("/login");
         }
     }

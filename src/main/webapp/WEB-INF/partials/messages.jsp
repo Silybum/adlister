@@ -11,8 +11,17 @@
     <title>Error Message</title>
 </head>
 <body>
+<input type="email" name="email" id="email" value="${param.ads}" class="validate"
+<c:if test="${not empty emailError}">style="border-bottom: 2px crimson;" </c:if>>
+<label for="email" data-error="Invalid Email" data-success="">Email</label>
 
-    E
+<%
+
+%>
+<%--login error --%>
+<%--registration error--%>
+<%--ads created msg--%>
+<%--confirm delete message--%>
 
 </body>
 </html>

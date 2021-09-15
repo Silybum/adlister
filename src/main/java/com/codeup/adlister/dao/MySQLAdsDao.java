@@ -71,4 +71,13 @@ public class MySQLAdsDao implements Ads {
         }
         return ads;
     }
+
+    public void addCategory(Long ad_Id, Long category_Id) {
+        try {
+            String insertQuery = "INSERT INTO ad_categories(ad_id, category_id) VALUES (?, ?)";
+            PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
 }

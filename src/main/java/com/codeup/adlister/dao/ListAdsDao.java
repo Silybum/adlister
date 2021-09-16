@@ -27,10 +27,6 @@ public class ListAdsDao implements Ads {
         return ad.getId();
     }
 
-    @Override
-    public void addCategory(Long ad_id, Long category_id) {
-
-    }
 
     private List<Ad> generateAds() {
         List<Ad> ads = new ArrayList<>();

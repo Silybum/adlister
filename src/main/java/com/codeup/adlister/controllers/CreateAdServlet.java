@@ -33,18 +33,31 @@ public class CreateAdServlet extends HttpServlet {
         String title = request.getParameter("title");
         String description = request.getParameter("description");
 //        String redirectErrorUrl = "/ads/create?";
+
         if(title == null || title.equals("")){
-            request.setAttribute("titleError", "Ad must have a title!");
+            request.setAttribute("titleError", "Ad MUST have a Title & Description!");
             request.setAttribute("hasTitleError", true);
 //            response.sendRedirect("/ads/create");
 //            redirectErrorUrl = redirectErrorUrl + "titleError=NoTitle&";
             request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
                     .forward(request, response);
+
+            if(description == null || description.equals("")){
+                request.setAttribute("descriptionError", "Please include a description");
+                request.setAttribute("hasDescriptionError", true);
+//            response.sendRedirect("/ads/create");
+//            redirectErrorUrl = redirectErrorUrl + "titleError=NoTitle&";
+                request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
+                        .forward(request, response);
+                return;
+            }
             return;
         }
 
+
         Ad ad = new Ad(
             user.getId(),
+            1,
             title,
             description
         );

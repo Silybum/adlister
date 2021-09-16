@@ -50,6 +50,20 @@ public class MySQLAdsDao implements Ads {
         return null;
     }
 
+    //TODO adding info to profile page below
+    @Override
+    public List<Ad> getByUserId(long id) {
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = connection.prepareStatement("select * from ads where user_id=?");
+            preparedStatement.setLong(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+            return createAdsFromResults(rs);
+        }catch(Exception e){
+            throw new RuntimeException("Error!", e);
+        }
+    }
+
     @Override
     public Long insert(Ad ad) {
         try {

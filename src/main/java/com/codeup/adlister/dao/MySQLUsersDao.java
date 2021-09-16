@@ -1,9 +1,12 @@
 package com.codeup.adlister.dao;
 
+import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MySQLUsersDao implements Users {
     private Connection connection;
@@ -34,21 +37,22 @@ public class MySQLUsersDao implements Users {
         }
     }
 
+    @Override
+    public void editUser(User user) {
+        String updateQuery = "UPDATE users SET username = ?, email = ?, password = ? WHERE id = ?";
 
-    public boolean editUser(User user) {
-        String query = "UPDATE users SET username = ?, email = ?, password = ? WHERE id = ?";
-        boolean updated = false;
         try {
-            PreparedStatement stmt = connection.prepareStatement(query);
+            PreparedStatement stmt = connection.prepareStatement(updateQuery);
             stmt.setString(1, user.getUsername());
             stmt.setString(2, user.getEmail());
             stmt.setString(3, user.getPassword());
             stmt.setLong(4, user.getId());
-            updated = stmt.executeUpdate() > 0;
+            stmt.executeUpdate();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return updated;
+
     }
 
 

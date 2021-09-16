@@ -11,6 +11,9 @@
     <div class="container">
         <h1>Welcome, ${sessionScope.user.username}!</h1>
 
+        <a href="/editProfile">Edit Profile</a>
+
+
         <h3>Your Ads:</h3>
         <c:forEach var="ad" items="${ads}">
             <div class="col-md-6">
@@ -18,6 +21,7 @@
                 <p>${ad.description}</p>
             </div>
         </c:forEach>
+
     </div>
 
 </body>

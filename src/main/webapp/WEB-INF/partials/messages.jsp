@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: thelibrarian
@@ -12,7 +13,17 @@
 </head>
 <body>
 
-    E
+<input type="email" name="email" id="email" value="${param.ads}" class="validate"
+<c:if test="${not empty emailError}">style="border-bottom: 2px crimson;" </c:if>>
+<label for="email" data-error="Invalid Email" data-success="">Email</label>
+
+<%
+
+%>
+<%--login error --%>
+<%--registration error--%>
+<%--ads created msg--%>
+<%--confirm delete message--%>
 
 </body>
 </html>

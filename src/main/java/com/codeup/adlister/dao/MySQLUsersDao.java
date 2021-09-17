@@ -53,10 +53,10 @@ public class MySQLUsersDao implements Users {
     public Boolean check(User user) {
         if (findByUsername(user.getUsername()) != null) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
+    }
 
     public void editUser(User user) {
         String updateQuery = "UPDATE users SET username = ?, email = ?, password = ? WHERE id = ?";
@@ -95,14 +95,14 @@ public class MySQLUsersDao implements Users {
     }
 
     private User extractUser(ResultSet rs) throws SQLException {
-        if (! rs.next()) {
+        if (!rs.next()) {
             return null;
         }
         return new User(
-            rs.getLong("id"),
-            rs.getString("username"),
-            rs.getString("email"),
-            rs.getString("password")
+                rs.getLong("id"),
+                rs.getString("username"),
+                rs.getString("email"),
+                rs.getString("password")
         );
     }
 

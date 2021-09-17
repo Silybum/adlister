@@ -42,22 +42,21 @@ public class CreateAdServlet extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
                     .forward(request, response);
 
-            if(description == null || description.equals("")){
-                request.setAttribute("descriptionError", "Please include a description");
-                request.setAttribute("hasDescriptionError", true);
-//            response.sendRedirect("/ads/create");
-//            redirectErrorUrl = redirectErrorUrl + "titleError=NoTitle&";
-                request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
-                        .forward(request, response);
-                return;
-            }
-            return;
+//            if(description == null || description.equals("")){
+//                request.setAttribute("descriptionError", "Please include a description");
+//                request.setAttribute("hasDescriptionError", true);
+////            response.sendRedirect("/ads/create");
+////            redirectErrorUrl = redirectErrorUrl + "titleError=NoTitle&";
+//                request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
+//                        .forward(request, response);
+//                return;
+//            }
+//            return;
         }
 
 
         Ad ad = new Ad(
-            user.getId(),
-            1,
+            user.getId(),// next line 1,
             title,
             description
         );

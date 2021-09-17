@@ -48,6 +48,7 @@ links depending on if a user was logged in or out?
             <input type="submit" class="btn btn-outline-success my-2 my-sm-0" value="Search">
         </form>
 
+
     </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 

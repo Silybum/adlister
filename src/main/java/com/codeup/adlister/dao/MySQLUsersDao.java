@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MySQLUsersDao implements Users {
-    private Connection connection;
+    private final Connection connection;
 
     public MySQLUsersDao(Config config) {
         try {
@@ -53,57 +53,54 @@ public class MySQLUsersDao implements Users {
     public Boolean check(User user) {
         if (findByUsername(user.getUsername()) != null) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
-
-    public void editUser(User user) {
-        String updateQuery = "UPDATE users SET username = ?, email = ?, password = ? WHERE id = ?";
-
-        try {
-            PreparedStatement stmt = connection.prepareStatement(updateQuery);
-            stmt.setString(1, user.getUsername());
-            stmt.setString(2, user.getEmail());
-            stmt.setString(3, user.getPassword());
-            stmt.setLong(4, user.getId());
-            stmt.executeUpdate();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-
     }
 
+        public void editUser (User user){
+            String updateQuery = "UPDATE users SET username = ?, email = ?, password = ? WHERE id = ?";
 
-    @Override
-    public Long insert(User user) {
-        String query = "INSERT INTO users(username, email, password) VALUES (?, ?, ?)";
-        try {
-            PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            stmt.setString(1, user.getUsername());
-            stmt.setString(2, user.getEmail());
-            stmt.setString(3, user.getPassword());
-            stmt.executeUpdate();
-            ResultSet rs = stmt.getGeneratedKeys();
-            rs.next();
-            return rs.getLong(1);
-        } catch (SQLException e) {
-            throw new RuntimeException("Error creating new user", e);
-        }
-    }
+            try {
+                PreparedStatement stmt = connection.prepareStatement(updateQuery);
+                stmt.setString(1, user.getUsername());
+                stmt.setString(2, user.getEmail());
+                stmt.setString(3, user.getPassword());
+                stmt.setLong(4, user.getId());
+                stmt.executeUpdate();
 
-    private User extractUser(ResultSet rs) throws SQLException {
-        if (! rs.next()) {
-            return null;
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
-        return new User(
-            rs.getLong("id"),
-            rs.getString("username"),
-            rs.getString("email"),
-            rs.getString("password")
-        );
-    }
+
+        @Override
+        public Long insert (User user){
+            String query = "INSERT INTO users(username, email, password) VALUES (?, ?, ?)";
+            try {
+                PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+                stmt.setString(1, user.getUsername());
+                stmt.setString(2, user.getEmail());
+                stmt.setString(3, user.getPassword());
+                stmt.executeUpdate();
+                ResultSet rs = stmt.getGeneratedKeys();
+                rs.next();
+                return rs.getLong(1);
+            } catch (SQLException e) {
+                throw new RuntimeException("Error creating new user", e);
+            }
+        }
+
+        private User extractUser (ResultSet rs) throws SQLException {
+            if (!rs.next()) {
+                return null;
+            }
+            return new User(
+                    rs.getLong("id"),
+                    rs.getString("username"),
+                    rs.getString("email"),
+                    rs.getString("password")
+            );
+        }
 
 }

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MySQLAdsDao implements Ads {
-    private Connection connection = null;
+    private Connection connection;
 
     public MySQLAdsDao(Config config) {
         try {
@@ -60,6 +60,20 @@ public class MySQLAdsDao implements Ads {
             ResultSet rs = preparedStatement.executeQuery();
             return createAdsFromResults(rs);
         }catch(Exception e){
+            throw new RuntimeException("Error!", e);
+        }
+    }
+
+    @Override
+    public void update(Ad ad) {
+        String query = "update ads set title = ?, description = ? where id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, ad.getTitle());
+            stmt.setString(2, ad.getDescription());
+            stmt.setLong(3, ad.getId());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
             throw new RuntimeException("Error!", e);
         }
     }

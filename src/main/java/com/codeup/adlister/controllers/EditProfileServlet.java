@@ -23,26 +23,12 @@ public class EditProfileServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String passwordConfirmation = request.getParameter("confirm_password");
-
-
-        // Validate input, put this into a class
-        boolean inputHasErrors = username.isEmpty()
-        || email.isEmpty()
-        || password.isEmpty()
-        || (! password.equals(passwordConfirmation));
-
-        if (inputHasErrors) {
-            response.sendRedirect("/editProfile");
-            return;
-        }
-
         User user = (User) request.getSession().getAttribute("user");
         user.setUsername(username);
         user.setEmail(email);
         user.setPassword(password);
         user.setPassword(passwordConfirmation);
-
         DaoFactory.getUsersDao().editUser(user);
-        response.sendRedirect("/login");
+        response.sendRedirect("/profile");
     }
 }

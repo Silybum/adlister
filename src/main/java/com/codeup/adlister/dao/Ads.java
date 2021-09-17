@@ -20,6 +20,8 @@ public interface Ads {
 
     List<Ad> getByUserId(long id);
 
+    void update(Ad ad);
 
+    void delete(long id);
 
 }

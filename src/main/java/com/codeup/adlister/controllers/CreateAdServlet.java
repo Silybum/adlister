@@ -55,7 +55,8 @@ public class CreateAdServlet extends HttpServlet {
 //            }
 //            return;
         }
-
+        request.getSession().setAttribute("title", title);
+        request.getSession().setAttribute("description", description);
 
         Ad ad = new Ad(
                 user.getId(),// next line 1,
@@ -64,6 +65,9 @@ public class CreateAdServlet extends HttpServlet {
         );
 
         DaoFactory.getAdsDao().insert(ad);
+
+        request.getSession().setAttribute("title", null);
+        request.getSession().setAttribute("description", null);
         response.sendRedirect("/ads");
     }
 }

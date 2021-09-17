@@ -37,6 +37,17 @@ public class MySQLUsersDao implements Users {
         }
     }
 
+    public User findById(long id) {
+        String query = "SELECT * FROM users WHERE id = ? LIMIT 1";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, String.valueOf(id));
+            return extractUser(stmt.executeQuery());
+        } catch (SQLException e) {
+            throw new RuntimeException("Errortrying to find user by Id", e);
+        }
+    }
+
     @Override
     public void editUser(User user) {
         String updateQuery = "UPDATE users SET username = ?, email = ?, password = ? WHERE id = ?";

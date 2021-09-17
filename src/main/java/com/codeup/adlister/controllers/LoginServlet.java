@@ -40,12 +40,8 @@ public class LoginServlet extends HttpServlet {
 
         if (validAttempt) {
             request.getSession().setAttribute("user", user);
+            response.sendRedirect("/profile");
 
-            if (redirect.equals("create")) {
-                response.sendRedirect("/ads/create");
-            } else {
-                response.sendRedirect("/profile");
-            }
         } else {
 //            alert("user/ password combo didn't match ");
             response.sendRedirect("/login");

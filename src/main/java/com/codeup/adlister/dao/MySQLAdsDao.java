@@ -78,6 +78,18 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    public void delete(long id) {
+        String Query = "DELETE FROM ads WHERE id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(Query);
+            stmt.setLong(1, id);
+            stmt.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding a user by username", e);
+        }
+
+    }
+
     @Override
     public Long insert(Ad ad) {
         try {

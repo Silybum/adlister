@@ -22,6 +22,6 @@ public interface Ads {
 
     void update(Ad ad);
 
-
+    void delete(long id);
 
 }

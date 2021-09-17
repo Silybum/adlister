@@ -4,6 +4,7 @@
     <jsp:include page="partials/head.jsp">
         <jsp:param name="title" value="Register For Our Site!" />
     </jsp:include>
+    <style><%@include file="/WEB-INF/adlister_css.css"%></style>
 </head>
 <body>
     <jsp:include page="partials/navbar.jsp" />

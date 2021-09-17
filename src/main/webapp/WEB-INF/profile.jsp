@@ -5,6 +5,7 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Your Profile" />
     </jsp:include>
+    <style><%@include file="/WEB-INF/adlister_css.css"%></style>
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />

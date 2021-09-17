@@ -50,7 +50,18 @@ links depending on if a user was logged in or out?
         </form>
         </ul>
 
+
+        <form action="/ads/search" class="form-inline" method="GET">
+            <input id="search" name="search" class="form-control mr-sm-2" type="text" placeholder="Search for an ad">
+            <input type="submit" class="btn btn-outline-success my-2 my-sm-0" value="Search">
+        </form>
+
+    </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+
+
     </div>
+
 </nav>
 
 <%--$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$--%>

@@ -49,6 +49,15 @@ public class MySQLUsersDao implements Users {
     }
 
     @Override
+
+    public Boolean check(User user) {
+        if (findByUsername(user.getUsername()) != null) {
+            return true;
+        }
+        else {
+            return false;
+        }
+
     public void editUser(User user) {
         String updateQuery = "UPDATE users SET username = ?, email = ?, password = ? WHERE id = ?";
 
@@ -63,6 +72,7 @@ public class MySQLUsersDao implements Users {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
 
     }
 

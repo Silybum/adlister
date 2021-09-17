@@ -8,6 +8,10 @@ public interface Users {
 
     User findById(long id);
 
+    Boolean check(User user);
+
+
     void editUser(User user);
+
 
 }

@@ -6,6 +6,7 @@ DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS categories;
 
 
+
 CREATE TABLE if not exists users (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     username VARCHAR(240) NOT NULL,
@@ -24,6 +25,7 @@ CREATE TABLE if not exists ads (
         ON DELETE CASCADE
 );
 
+
 create table if not exists categories (
   id int unsigned not null auto_increment,
   name varchar(255) not null unique,
@@ -36,3 +38,18 @@ create table if not exists ad_categories (
   foreign key (ad_id) references ads(id),
   foreign key(category_id) references categories(id)
 );
+
+CREATE TABLE categories (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL UNIQUE,
+    PRIMARY KEY (id)
+);
+
+
+CREATE TABLE ad_categories (
+    ad_id INT UNSIGNED NOT NULL,
+    category_id INT UNSIGNED NOT NULL,
+    FOREIGN KEY (ad_id) REFERENCES ads(id),
+    FOREIGN KEY (category_id) REFERENCES categories(id)
+);
+

@@ -17,7 +17,7 @@ links depending on if a user was logged in or out?
                         <ul class="nav navbar-nav navbar-left">
                             <li><a href="/profile">PROFILE</a></li>
                             <li><a href="/ads/create">CREATE AD</a></li>
-                            <li><a href="/ads/delete">DELETE AD</a></li>
+                            <li><a href="/ads">View Ads</a></li>
 <%--                            <li><a href="/logout">LOGOUT</a></li>--%>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">

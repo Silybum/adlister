@@ -18,7 +18,7 @@
 
         <h3>Your Ads:</h3>
         <c:forEach var="ad" items="${ads}">
-            <div class="col-md-6">
+            <div id="createdAd" class="col-md-6">
                 <h3>${ad.title}</h3>
                 <p>${ad.description}</p>
                 <a href="/ads/updateads?ad_id=${ad.id}">Update</a>

@@ -1,5 +1,6 @@
-package com.codeup.adlister.dao;
 
+
+import com.codeup.adlister.dao.Ads;
 import com.codeup.adlister.models.Ad;
 
 import java.util.ArrayList;
@@ -29,6 +30,37 @@ public class ListAdsDao implements Ads {
 
     @Override
     public void addCategory(Long ad_id, Long category_id) {
+
+    }
+
+
+    @Override
+    public Ad findById(long id) {
+        return null;
+    }
+
+    @Override
+    public Long findUserId(long id) {
+        return null;
+    }
+
+    @Override
+    public List<Ad> searchAds(String keyword) {
+        return null;
+    }
+
+    @Override
+    public List<Ad> getByUserId(long id) {
+        return null;
+    }
+
+    @Override
+    public void update(Ad ad) {
+
+    }
+
+    @Override
+    public void delete(long id) {
 
     }
 

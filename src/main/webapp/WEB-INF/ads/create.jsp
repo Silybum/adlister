@@ -30,13 +30,15 @@
                 <textarea id="description" name="description" class="form-control" type="text" value="${sessionScope.description}"></textarea>
             </c:if>
 
-            <c:if test="${sessionScope.description != null}">
+            <c:if test="${sessionScope.description == null}">
                 <textarea id="description" name="description" class="form-control" type="text"></textarea>
             </c:if>
         </div>
 
+        <input type="submit" class="btn btn-block btn-primary">
+
         <input type="hidden" name="redirect" value="${redirect}">
-        
+
     </form>
 </div>
 

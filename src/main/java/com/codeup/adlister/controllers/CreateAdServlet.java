@@ -55,8 +55,17 @@ public class CreateAdServlet extends HttpServlet {
 //            }
 //            return;
         }
+
+
         request.getSession().setAttribute("title", title);
         request.getSession().setAttribute("description", description);
+
+        boolean inputHasErrors = title.isEmpty() || description.isEmpty();
+
+        if (inputHasErrors) {
+            response.sendRedirect("/ads/create");
+            return;
+        }
 
         Ad ad = new Ad(
                 user.getId(),// next line 1,

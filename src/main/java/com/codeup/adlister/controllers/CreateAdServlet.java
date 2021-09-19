@@ -62,6 +62,10 @@ public class CreateAdServlet extends HttpServlet {
             title,
             description
         );
+        Long IDofNewAd = DaoFactory.getAdsDao().insert(ad);
+
+
+
 
 
 

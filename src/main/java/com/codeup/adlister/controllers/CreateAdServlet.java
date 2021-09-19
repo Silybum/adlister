@@ -64,14 +64,22 @@ public class CreateAdServlet extends HttpServlet {
         );
         Long IDofNewAd = DaoFactory.getAdsDao().insert(ad);
 
+        if(request.getParameter("appliances").equals("on")) {
+            DaoFactory.getAdsDao().addCategory(IDofNewAd, 1L);
+        }
+        if(request.getParameter("automotive").equals("on")) {
+            DaoFactory.getAdsDao().addCategory(IDofNewAd, 2L);
+        }
+        if (request.getParameter("baby+kid").equals("on")) {
+            DaoFactory.getAdsDao().addCategory(IDofNewAd, 3L);
+        }
+        if(request.getParameter("electronics").equals("on")) {
+            DaoFactory.getAdsDao().addCategory(IDofNewAd, 5L);
+        }
+        if(request.getParameter("furniture").equals("on")) {
+            DaoFactory.getAdsDao().addCategory(IDofNewAd, 4L);
+        }
 
-
-
-
-
-
-
-        DaoFactory.getAdsDao().insert(ad);
         response.sendRedirect("/ads");
     }
 }

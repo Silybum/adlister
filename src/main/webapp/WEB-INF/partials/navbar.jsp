@@ -3,7 +3,7 @@ Todo: Dynamic navbar Wouldn't it be nice if our navbar showed different
 links depending on if a user was logged in or out?
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<nav src="" class="navbar navbar-light" style="background-color: #7e9a9a;"> <!--navbar-default-->
+<nav src="" class="navbar navbar-light" style="background-color: #708090;"> <!--navbar-default-->
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -14,7 +14,7 @@ links depending on if a user was logged in or out?
                 <c:choose>
                     <c:when test="${sessionScope.user != null}">
                         <%-- When logged in--%>
-                        <ul class="nav navbar-nav navbar-left">
+                        <ul class="nav navbar-nav navbar-left ">
                             <li><a href="/profile">PROFILE</a></li>
                             <li><a href="/ads/create">CREATE AD</a></li>
                             <li><a href="/ads">View Ads</a></li>

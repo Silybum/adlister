@@ -1,11 +1,88 @@
 body{
-    background-color: darkseagreen;
+    background-color: #FFFAF0;
 }
-#createdAd{
-    border: solid black;
-    width: 200px;
+/*#createdAd{*/
+/*    border: solid black;*/
+/*    width: 200px;*/
+/*    height: 200px;*/
+/*}*/
+.fancy {
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
+    rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    padding : 1em;
+    width: 50%;
     height: 200px;
-}
-h1{
+    box-sizing: border-box;
 
+    /* At the bottom of our background stack,
+       let's have a misty grey solid color */
+    background-color: #E4E4D9;
+
+    /* We stack linear gradients on top of each
+       other to create our color strip effect.
+       As you will notice, color gradients are
+       considered to be images and can be
+       manipulated as such */
+    background-image: linear-gradient(175deg, rgba(0,0,0,0) 95%, #8da389 95%),
+    linear-gradient( 85deg, rgba(0,0,0,0) 95%, #8da389 95%),
+    linear-gradient(175deg, rgba(0,0,0,0) 90%, #b4b07f 90%),
+    linear-gradient( 85deg, rgba(0,0,0,0) 92%, #b4b07f 92%),
+    linear-gradient(175deg, rgba(0,0,0,0) 85%, #c5a68e 85%),
+    linear-gradient( 85deg, rgba(0,0,0,0) 89%, #c5a68e 89%),
+    linear-gradient(175deg, rgba(0,0,0,0) 80%, #ba9499 80%),
+    linear-gradient( 85deg, rgba(0,0,0,0) 86%, #ba9499 86%),
+    linear-gradient(175deg, rgba(0,0,0,0) 75%, #9f8fa4 75%),
+    linear-gradient( 85deg, rgba(0,0,0,0) 83%, #9f8fa4 83%),
+    linear-gradient(175deg, rgba(0,0,0,0) 70%, #74a6ae 70%),
+    linear-gradient( 85deg, rgba(0,0,0,0) 80%, #74a6ae 80%);
+}
+
+
+.button-29 {
+   align-items: center;
+   appearance: none;
+   background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+   border: 0;
+   border-radius: 6px;
+   box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+   box-sizing: border-box;
+   color: #fff;
+   cursor: pointer;
+   display: inline-flex;
+   font-family: "JetBrains Mono",monospace;
+   height: 48px;
+   justify-content: center;
+   line-height: 1;
+   list-style: none;
+   overflow: hidden;
+   padding-left: 16px;
+   padding-right: 16px;
+   position: relative;
+   text-align: left;
+   text-decoration: none;
+   transition: box-shadow .15s,transform .15s;
+   user-select: none;
+   -webkit-user-select: none;
+   touch-action: manipulation;
+   white-space: nowrap;
+   will-change: box-shadow,transform;
+   font-size: 18px;
+}
+
+.button-29:focus {
+    box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+
+.button-29:hover {
+    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.button-29:active {
+    box-shadow: #3c4fe0 0 3px 7px inset;
+    transform: translateY(2px);
 }

@@ -12,12 +12,12 @@
 <div class="container">
     <h1>Search results:</h1>
 
-    <c:forEach var="ad" items="${ads}">
-        <div class="col-md-6">
-            <h2>${ad.title}</h2>
-            <p>${ad.description}</p>
-        </div>
-    </c:forEach>
+    <c:if test="${ads != null}">
+        <c:forEach var="ad" items="${ads}">
+                    <h5 class="card-title"><a href="${pageContext.request.contextPath}/ads/show?id=${ad.id}">${ad.title}</a></h5>
+                    <p>${ad.description}</p>
+        </c:forEach>
+    </c:if>
 </div>
 
 </body>

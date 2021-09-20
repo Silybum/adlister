@@ -10,8 +10,10 @@
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container">
-        <h1>Welcome to the Silybum!</h1>
-        <a href="/ads/create">Create an Ad</a>
+        <h1 class="fontColor">Welcome to the Silybum!</h1>
+        <button class="button-29">
+        <a href="/ads/create" style="color: white">Create an Ad</a>
+        </button>
     </div>
 </body>
 </html>

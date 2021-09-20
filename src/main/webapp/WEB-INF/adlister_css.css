@@ -1,46 +1,40 @@
 body{
-    background-color: #FFFAF0;
+    background-color: #F0F8FF;
 }
-/*#createdAd{*/
-/*    border: solid black;*/
-/*    width: 200px;*/
-/*    height: 200px;*/
-/*}*/
+.fontColor{
+    /*color: #FFEBCD;*/
+    font-family: 'Grechen Fuemen', cursive
+}
+
 .fancy {
-    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
-    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
-    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
-    rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
-    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
-    rgba(0, 0, 0, 0.09) 0px 32px 16px;
     padding : 1em;
+    margin: 4px;
     width: 50%;
     height: 200px;
     box-sizing: border-box;
 
     /* At the bottom of our background stack,
        let's have a misty grey solid color */
-    background-color: #E4E4D9;
+    background-color: rgba(119, 159, 187, 0.79);
 
     /* We stack linear gradients on top of each
        other to create our color strip effect.
        As you will notice, color gradients are
        considered to be images and can be
        manipulated as such */
-    background-image: linear-gradient(175deg, rgba(0,0,0,0) 95%, #8da389 95%),
-    linear-gradient( 85deg, rgba(0,0,0,0) 95%, #8da389 95%),
-    linear-gradient(175deg, rgba(0,0,0,0) 90%, #b4b07f 90%),
-    linear-gradient( 85deg, rgba(0,0,0,0) 92%, #b4b07f 92%),
-    linear-gradient(175deg, rgba(0,0,0,0) 85%, #c5a68e 85%),
-    linear-gradient( 85deg, rgba(0,0,0,0) 89%, #c5a68e 89%),
-    linear-gradient(175deg, rgba(0,0,0,0) 80%, #ba9499 80%),
+    background-image: linear-gradient(175deg, rgba(0,0,0,0) 95%, #0d0e0e 95%),
+    linear-gradient( 85deg, rgba(0,0,0,0) 95%, #4c4c50 95%),
+    linear-gradient(175deg, rgba(0,0,0,0) 90%, #29335a 90%),
+    linear-gradient( 85deg, rgba(0,0,0,0) 92%, #214786 92%),
+    linear-gradient(175deg, rgba(0,0,0,0) 85%, #6084ad 85%),
+    linear-gradient( 85deg, rgba(0,0,0,0) 89%, #6783ba 89%),
+    linear-gradient(175deg, rgba(0,0,0,0) 80%, #5c0c12 80%),
     linear-gradient( 85deg, rgba(0,0,0,0) 86%, #ba9499 86%),
     linear-gradient(175deg, rgba(0,0,0,0) 75%, #9f8fa4 75%),
     linear-gradient( 85deg, rgba(0,0,0,0) 83%, #9f8fa4 83%),
     linear-gradient(175deg, rgba(0,0,0,0) 70%, #74a6ae 70%),
     linear-gradient( 85deg, rgba(0,0,0,0) 80%, #74a6ae 80%);
 }
-
 
 .button-29 {
    align-items: center;

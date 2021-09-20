@@ -8,7 +8,7 @@
     </jsp:include>
 </head>
 <body>
-    <div class="container">
+    <div class="container fontColor">
         <h1>Create a new Ad</h1>
         <form action="/ads/create" method="post">
             <div class="form-group">
@@ -23,7 +23,7 @@
                 <label for="description">Description</label>
                 <textarea id="description" name="description" class="form-control" type="text"></textarea>
             </div>
-            <input type="submit" class="btn btn-block btn-primary button-29">
+            <input type="submit" class="btn btn-block btn-primary">
         </form>
         <a href="/profile">Cancel</a>
     </div>

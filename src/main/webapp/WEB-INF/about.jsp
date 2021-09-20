@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>Contributions</title>
+    <style><%@include file="/WEB-INF/adlister_css.css"%></style>
 </head>
 <body>
 

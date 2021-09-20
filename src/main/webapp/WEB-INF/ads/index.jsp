@@ -13,7 +13,7 @@
     <h1>Here Are all the ads!</h1>
 
     <c:forEach var="ad" items="${ads}">
-        <div class="col-md-6">
+        <div class="col-md-6 fancy">
             <a href="${pageContext.request.contextPath}/ads/show?id=${ad.id}">
             <h2>${ad.title}</h2></a>
             <p>${ad.description}</p>

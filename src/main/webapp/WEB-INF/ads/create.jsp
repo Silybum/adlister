@@ -8,9 +8,11 @@
     </jsp:include>
 </head>
 <body>
-<div class="container">
-    <h1>Create a new Ad</h1>
-    <form action="/ads/create" method="post">
+
+
+    <div class="container fontColor">
+        <h1>Create a new Ad</h1>
+         <form action="/ads/create" method="post">
 
         <div class="form-group">
             <label for="title">Title</label>
@@ -19,6 +21,7 @@
             </c:if>
 
             <c:if test="${sessionScope.title == null}">
+
                 <input id="title" name="title" class="form-control" type="text">
             </c:if>
         </div>
@@ -32,15 +35,32 @@
 
             <c:if test="${sessionScope.description == null}">
                 <textarea id="description" name="description" class="form-control" type="text"></textarea>
-            </c:if>
-        </div>
 
-        <input type="submit" class="btn btn-block btn-primary">
+            </div>
+            <div class="categories">
 
-        <input type="hidden" name="redirect" value="${redirect}">
+                <label for="appliances">appliances</label>
+                <input id="appliances" name="appliances" type="checkbox">
 
-    </form>
-</div>
+                <label for="automotive">automotive</label>
+                <input id="automotive" name="automotive" type="checkbox">
+
+                <label for="baby+kid">baby+kids</label>
+                <input id="baby+kid" name="baby+kid" type="checkbox">
+
+                <label for="electronics">electronics</label>
+                <input id="electronics" name="electronics" type="checkbox">
+
+                <label for="furniture">furniture</label>
+                <input id="furniture" name="furniture" type="checkbox">
+
+
+            </div>
+            <input type="submit" class="btn btn-block btn-primary">
+        </form>
+        <a href="/profile">Cancel</a>
+    </div>
+
 
 </body>
 </html>

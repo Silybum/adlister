@@ -3,9 +3,6 @@ package com.codeup.adlister.dao;
 import com.codeup.adlister.models.Ad;
 import com.mysql.cj.jdbc.Driver;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -91,6 +88,20 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
+    public List<Ad> getAdsFromCategory(String category) {
+        try {
+            String query = "SELECT * FROM ads as a WHERE ads.id IN(SELECT ad_categories.ad_id  FROM ad_categories as ad_categories WHERE category_id IN(\n" +
+                    "    SELECT id FROM categories WHERE categories.title LIKE ?));";
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, String.valueOf(category));
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all ads.", e);
+        }
+    }
+
+    @Override
     public Long insert(Ad ad) {
         try {
             String insertQuery = "INSERT INTO ads(user_id, title, description) VALUES (?, ?, ?)";
@@ -160,6 +171,11 @@ public class MySQLAdsDao implements Ads {
         try {
             String insertQuery = "INSERT INTO ad_categories(ad_id, category_id) VALUES (?, ?)";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+
+            stmt.setLong(1, ad_Id);
+            stmt.setLong(2, category_Id);
+            stmt.executeUpdate();
+
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

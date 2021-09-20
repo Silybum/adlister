@@ -6,6 +6,9 @@
         <jsp:param name="title" value="Your Profile" />
     </jsp:include>
     <style><%@include file="/WEB-INF/adlister_css.css"%></style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Are+You+Serious&display=swap" rel="stylesheet">
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
@@ -21,7 +24,7 @@
             <div id="createdAd" class="col-md-6">
                 <h3>${ad.title}</h3>
                 <p>${ad.description}</p>
-                <a href="/ads/updateads?ad_id=${ad.id}">Update</a>
+                <a href="/ads/updateads?ad_id=${ad.id}">Update</a><br>
                 <a href="/ads/delete?ad_id=${ad.id}">Delete Ad</a>
             </div>
         </c:forEach>

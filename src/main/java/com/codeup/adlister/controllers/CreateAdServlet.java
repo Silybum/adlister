@@ -26,7 +26,7 @@ public class CreateAdServlet extends HttpServlet {
 
 
         request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
-            .forward(request, response);
+                .forward(request, response);
 
     }
 
@@ -57,10 +57,20 @@ public class CreateAdServlet extends HttpServlet {
         }
 
 
+        request.getSession().setAttribute("title", title);
+        request.getSession().setAttribute("description", description);
+
+        boolean inputHasErrors = title.isEmpty() || description.isEmpty();
+
+        if (inputHasErrors) {
+            response.sendRedirect("/ads/create");
+            return;
+        }
+
         Ad ad = new Ad(
-            user.getId(),// next line 1,
-            title,
-            description
+                user.getId(),// next line 1,
+                title,
+                description
         );
         Long IDofNewAd = DaoFactory.getAdsDao().insert(ad);
 
@@ -79,6 +89,11 @@ public class CreateAdServlet extends HttpServlet {
         if(request.getParameter("furniture") != null) {
             DaoFactory.getAdsDao().addCategory(IDofNewAd, 4L);
         }
+
+        DaoFactory.getAdsDao().insert(ad);
+
+        request.getSession().setAttribute("title", null);
+        request.getSession().setAttribute("description", null);
 
         response.sendRedirect("/ads");
     }

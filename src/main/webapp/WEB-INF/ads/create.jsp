@@ -8,20 +8,34 @@
     </jsp:include>
 </head>
 <body>
+
+
     <div class="container fontColor">
         <h1>Create a new Ad</h1>
-        <form action="/ads/create" method="post">
-            <div class="form-group">
-                <label for="title">Title</label>
-                <input id="title" name="title" class="form-control" type="text">
-                 <c:if test="${hasTitleError}">
-                     <p><c:out value="${titleError}"/></p>
-                 </c:if>
+         <form action="/ads/create" method="post">
 
-            </>
-            <div class="form-group">
-                <label for="description">Description</label>
+        <div class="form-group">
+            <label for="title">Title</label>
+            <c:if test="${sessionScope.title != null}">
+                <input id="title" name="title" class="form-control" type="text" value="${sessionScope.title}">
+            </c:if>
+
+            <c:if test="${sessionScope.title == null}">
+
+                <input id="title" name="title" class="form-control" type="text">
+            </c:if>
+        </div>
+
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <c:if test="${sessionScope.description != null}">
+                <textarea id="description" name="description" class="form-control" type="text" value="${sessionScope.description}"></textarea>
+            </c:if>
+
+            <c:if test="${sessionScope.description == null}">
                 <textarea id="description" name="description" class="form-control" type="text"></textarea>
+
             </div>
             <div class="categories">
 
@@ -46,6 +60,7 @@
         </form>
         <a href="/profile">Cancel</a>
     </div>
+
 
 </body>
 </html>

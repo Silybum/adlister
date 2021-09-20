@@ -171,9 +171,11 @@ public class MySQLAdsDao implements Ads {
         try {
             String insertQuery = "INSERT INTO ad_categories(ad_id, category_id) VALUES (?, ?)";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+
             stmt.setLong(1, ad_Id);
             stmt.setLong(2, category_Id);
             stmt.executeUpdate();
+
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

@@ -5,12 +5,15 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Welcome to my site!" />
     </jsp:include>
+    <style><%@include file="/WEB-INF/adlister_css.css"%></style>
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container">
-        <h1>Welcome to the Adlister!</h1>
-        <a href="/ads/create">Create an Ad</a>
+        <h1 class="fontColor">Welcome to the Silybum!</h1>
+        <button class="button-29">
+        <a href="/ads/create" style="color: white">Create an Ad</a>
+        </button>
     </div>
 </body>
 </html>

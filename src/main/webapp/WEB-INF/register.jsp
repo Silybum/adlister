@@ -4,6 +4,7 @@
     <jsp:include page="partials/head.jsp">
         <jsp:param name="title" value="Register For Our Site!" />
     </jsp:include>
+    <style><%@include file="/WEB-INF/adlister_css.css"%></style>
 </head>
 <body>
     <jsp:include page="partials/navbar.jsp" />
@@ -26,7 +27,7 @@
                 <label for="confirm_password">Confirm Password</label>
                 <input id="confirm_password" name="confirm_password" class="form-control" type="password">
             </div>
-            <input type="submit" class="btn btn-primary btn-block">
+            <input type="submit" class="btn btn-primary btn-block button-29">
         </form>
     </div>
 </body>

@@ -5,6 +5,7 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Edit Your Profile" />
     </jsp:include>
+    <style><%@include file="/WEB-INF/adlister_css.css"%></style>
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
@@ -28,7 +29,7 @@
             <label for="confirm_password">Confirm Updated Password</label>
             <input id="confirm_password" name="confirm_password" class="form-control" type="password">
         </div>
-        <input type="submit" class="btn btn-primary btn-block">
+        <input type="submit" class="btn btn-primary btn-block button-29">
     </form>
 </div>
 

@@ -90,7 +90,6 @@ public class CreateAdServlet extends HttpServlet {
             DaoFactory.getAdsDao().addCategory(IDofNewAd, 4L);
         }
 
-        DaoFactory.getAdsDao().insert(ad);
 
         request.getSession().setAttribute("title", null);
         request.getSession().setAttribute("description", null);

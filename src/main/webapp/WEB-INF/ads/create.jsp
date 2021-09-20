@@ -9,7 +9,6 @@
 </head>
 <body>
 
-
     <div class="container fontColor">
         <h1>Create a new Ad</h1>
          <form action="/ads/create" method="post">
@@ -21,7 +20,6 @@
             </c:if>
 
             <c:if test="${sessionScope.title == null}">
-
                 <input id="title" name="title" class="form-control" type="text">
             </c:if>
         </div>
@@ -35,7 +33,7 @@
 
             <c:if test="${sessionScope.description == null}">
                 <textarea id="description" name="description" class="form-control" type="text"></textarea>
-
+            </c:if>
             </div>
             <div class="categories">
 
